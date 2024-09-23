@@ -1,4 +1,4 @@
-import asyncHandler from "express-async-handler";
+import asyncHandler from "../../middlewares/asyncHandler.js";
 
 const logoutUsers = asyncHandler(async (req = request, res = response) => {
   res.clearCookie("jwt", "",{
