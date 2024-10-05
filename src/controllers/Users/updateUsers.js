@@ -1,9 +1,9 @@
 import asyncHandler from "../../middlewares/asyncHandler.js";
 import User from "../../models/userModel.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 
 const updateUsers = asyncHandler(async (req, res) => {
-  const users = await User.findById(req.params.id);
+  const users = await User.findById(req.user.id);
 
   if (users) {
     users.username = req.body.username || users.username;
