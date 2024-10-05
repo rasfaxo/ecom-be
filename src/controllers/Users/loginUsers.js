@@ -9,7 +9,7 @@ const loginUsers = asyncHandler(async (req = request, res = response) => {
   const existingUser = await User.findOne({ email });
 
   if (existingUser) {
-    const isMatch = bcrypt.compare(password, existingUser.password);
+    const isMatch = await bcrypt.compare(password, existingUser.password);
     if (isMatch) {
       Token(res, existingUser._id);
       res.status(200).json({
