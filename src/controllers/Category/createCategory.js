@@ -12,9 +12,9 @@ const createCategory = asyncHandler(async (req, res) => {
       });
     }
 
-    const exitingCategory = await Category.findOne({ name });
+    const existingCategory = await Category.findOne({ name }); 
 
-    if (exitingCategory) {
+    if (existingCategory) {
       return res.status(400).json({
         success: false,
         message: "Nama kategori sudah ada",

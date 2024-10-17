@@ -3,9 +3,9 @@ import Category from "../../models/categoryModel.js";
 
 const deleteCategory = asyncHandler(async (req, res) => {
   try {
-    const { CategoryId } = req.params;
+    const { categoryId } = req.params;
 
-    const removedCategory = await Category.findByIdAndRemove(CategoryId);
+    const removedCategory = await Category.findByIdAndDelete(categoryId);
     res.status(200).json({
       success: true,
       message: "Kategori berhasil dihapus",

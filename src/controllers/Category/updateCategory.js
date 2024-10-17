@@ -4,9 +4,9 @@ import Category from "../../models/categoryModel.js";
 const updateCategory = asyncHandler(async (req, res) => {
   try {
     const { name } = req.body;
-    const { CategoryId } = req.params;
+    const { categoryId } = req.params;
 
-    const category = await Category.findOne({ _id: CategoryId });
+    const category = await Category.findOne({ _id: categoryId });
 
     if (!category) {
       return res.status(404).json({
