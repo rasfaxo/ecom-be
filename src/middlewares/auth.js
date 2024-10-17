@@ -26,7 +26,7 @@ const authenticate = asyncHandler(async (req, res, next) => {
   } else {
     return res
       .status(401)
-      .json({ messages: "tidak terotorisasi, token tidak ada" });
+      .json({ messages: "tidak ada token, silahkan login" });
   }
 });
 
@@ -34,7 +34,7 @@ const authorizeAdmin = (req, res, next) => {
   if (req.user && req.user.isAdmin) {
     next();
   } else {
-    return res.status(401).json({ messages: "tidak terotorisasi, bukan admin" });
+    return res.status(401).json({ messages: "anda tidak punya akses" });
   }
 };
 
